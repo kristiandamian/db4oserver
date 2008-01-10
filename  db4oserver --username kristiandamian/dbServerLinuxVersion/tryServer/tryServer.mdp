@@ -1,0 +1,53 @@
+<Project name="tryServer" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="DotNetProjectConfiguration">
+      <Output directory="./bin/Debug" assembly="tryServer" />
+      <Build debugmode="True" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+    <Configuration name="Release" ctype="DotNetProjectConfiguration">
+      <Output directory="./bin/Release" assembly="tryServer" />
+      <Build debugmode="False" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+  </Configurations>
+  <Contents>
+    <File name="./gtk-gui/gui.stetic" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./gtk-gui/generated.cs" subtype="Code" buildaction="Compile" />
+    <File name="./MainWindow.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Main.cs" subtype="Code" buildaction="Compile" />
+    <File name="./AssemblyInfo.cs" subtype="Code" buildaction="Compile" />
+    <File name="./tryLib.cs" subtype="Code" buildaction="Compile" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/play.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/process-stop.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/db_sql_.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/Network Configuration.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/Internet - Offline.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./frmSettings.cs" subtype="Code" buildaction="Compile" />
+    <File name="./gtk-gui/tryServer.frmSettings.cs" subtype="Code" buildaction="Compile" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/_database.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/password.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/users.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./gtk-gui/tryServer.MainWindow.cs" subtype="Code" buildaction="Compile" />
+    <File name="./frmUsers.cs" subtype="Code" buildaction="Compile" />
+    <File name="./gtk-gui/tryServer.frmUsers.cs" subtype="Code" buildaction="Compile" />
+    <File name="../../../../home/kristian/Desktop/IMG SQL/User.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Utility.cs" subtype="Code" buildaction="Compile" />
+  </Contents>
+  <References>
+    <ProjectReference type="Gac" localcopy="True" refto="gtk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="gdk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="glib-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="glade-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="pango-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Assembly" localcopy="True" refto="../../../../home/kristian/Desktop/Try/Db4objects.Db4o.dll" />
+    <ProjectReference type="Assembly" localcopy="True" refto="../../../../home/kristian/Desktop/Try/Libreria.dll" />
+    <ProjectReference type="Gac" localcopy="True" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <ProjectReference type="Assembly" localcopy="True" refto="../../../../home/kristian/Desktop/Try/try/bin/Debug/DB4OServer.dll" />
+    <ProjectReference type="Assembly" localcopy="True" refto="../../../../home/kristian/Desktop/Try/try/bin/Debug/EncriptacionAsimetrica.dll" />
+  </References>
+  <GtkDesignInfo partialTypes="True" />
+</Project>
