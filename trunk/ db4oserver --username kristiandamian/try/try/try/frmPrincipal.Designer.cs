@@ -59,12 +59,12 @@ namespace tryIcon
             this.txtServer = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.treeFiles = new System.Windows.Forms.TreeView();
+            this.imagenes = new System.Windows.Forms.ImageList(this.components);
             this.mnuTreeFile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewThisItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imagenes = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgOffline)).BeginInit();
@@ -257,6 +257,7 @@ namespace tryIcon
             // 
             this.txtPassword.Location = new System.Drawing.Point(214, 169);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 18;
             // 
@@ -265,9 +266,9 @@ namespace tryIcon
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(158, 172);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 17;
-            this.label8.Text = "Password :";
+            this.label8.Text = "Password ";
             // 
             // txtUser
             // 
@@ -281,9 +282,9 @@ namespace tryIcon
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(158, 138);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "User :";
+            this.label9.Text = "User ";
             // 
             // groupBox1
             // 
@@ -357,6 +358,14 @@ namespace tryIcon
             this.treeFiles.Size = new System.Drawing.Size(144, 239);
             this.treeFiles.TabIndex = 0;
             // 
+            // imagenes
+            // 
+            this.imagenes.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imagenes.ImageStream")));
+            this.imagenes.TransparentColor = System.Drawing.Color.Transparent;
+            this.imagenes.Images.SetKeyName(0, "disconnected.ico");
+            this.imagenes.Images.SetKeyName(1, "connected.ico");
+            this.imagenes.Images.SetKeyName(2, "applications.ico");
+            // 
             // mnuTreeFile
             // 
             this.mnuTreeFile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -389,14 +398,6 @@ namespace tryIcon
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
             this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.deleteItemToolStripMenuItem.Text = "Delete Item";
-            // 
-            // imagenes
-            // 
-            this.imagenes.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imagenes.ImageStream")));
-            this.imagenes.TransparentColor = System.Drawing.Color.Transparent;
-            this.imagenes.Images.SetKeyName(0, "disconnected.ico");
-            this.imagenes.Images.SetKeyName(1, "connected.ico");
-            this.imagenes.Images.SetKeyName(2, "applications.ico");
             // 
             // frmPrincipal
             // 
