@@ -11,3 +11,16 @@ C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projec
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\UTestServer\obj\Debug\UTestServer.pdb
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\UTestServer\bin\Debug\EncriptacionAsimetrica.dll
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\UTestServer\bin\Debug\EncriptacionAsimetrica.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\UTestServer.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\UTestServer.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\Db4objects.Db4o.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\nunit.framework.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\EncriptacionAsimetrica.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\Db4objects.Db4o.xml
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\EncriptacionAsimetrica.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\DB4OServer.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\nunit.framework.xml
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\obj\Debug\UTestServer.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\obj\Debug\UTestServer.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\UTestServer\bin\Debug\DB4OServer.dll
