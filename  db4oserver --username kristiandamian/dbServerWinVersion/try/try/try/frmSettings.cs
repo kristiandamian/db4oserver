@@ -33,8 +33,11 @@ namespace tryIcon
             txtFile.Text = MiCliente.File;
             txtUser.Text = MiCliente.User;
             //txtPassword.Text = MiCliente.Password;
-            if (MiCliente.FileUsers==null || MiCliente.FileUsers.Trim().Length == 0)
+            if (MiCliente.FileUsers == null || MiCliente.FileUsers.Trim().Length == 0)
+            {
                 txtFileUsers.Text = Application.StartupPath + Path.DirectorySeparatorChar + "users.yap";
+                MiCliente.FileUsers = txtFileUsers.Text;
+            }
             else
                 txtFileUsers.Text = MiCliente.FileUsers;
         }
