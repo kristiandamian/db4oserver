@@ -78,9 +78,9 @@ namespace tryIcon
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(141, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "User :";
+            this.label1.Text = "User ";
             // 
             // txtUser
             // 
@@ -102,18 +102,18 @@ namespace tryIcon
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(141, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Password :";
+            this.label2.Text = "Password ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(141, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Instance :";
+            this.label3.Text = "Instance ";
             // 
             // lblServer
             // 
@@ -130,9 +130,9 @@ namespace tryIcon
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(141, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "File :";
+            this.label4.Text = "File ";
             // 
             // lblFile
             // 

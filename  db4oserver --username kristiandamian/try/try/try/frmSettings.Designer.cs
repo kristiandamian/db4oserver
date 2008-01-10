@@ -139,9 +139,9 @@ namespace tryIcon
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(71, 188);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Password :";
+            this.label4.Text = "Password ";
             // 
             // txtUser
             // 
@@ -155,9 +155,9 @@ namespace tryIcon
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(74, 154);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "User :";
+            this.label5.Text = "User ";
             // 
             // btnAceptar
             // 
