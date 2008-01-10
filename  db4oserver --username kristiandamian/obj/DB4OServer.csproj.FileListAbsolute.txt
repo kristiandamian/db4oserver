@@ -1,0 +1,9 @@
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\bin\Debug\DB4OServer.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\bin\Debug\DB4OServer.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\bin\Debug\Db4objects.Db4o.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\bin\Debug\Db4objects.Db4o.xml
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\obj\Debug\DB4OServer.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\obj\Debug\DB4OServer.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\bin\Debug\EncriptacionAsimetrica.dll
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\DB4OServer\bin\Debug\EncriptacionAsimetrica.pdb
