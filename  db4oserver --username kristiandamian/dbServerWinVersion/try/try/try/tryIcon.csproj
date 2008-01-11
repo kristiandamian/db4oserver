@@ -60,6 +60,14 @@
     <Compile Include="frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="HiloTareas\frmAddJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HiloTareas\frmAddJob.Designer.cs">
+      <DependentUpon>frmAddJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HiloTareas\Schedule.cs" />
+    <Compile Include="HiloTareas\Tarea.cs" />
     <Compile Include="NotificationIcon.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -95,6 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="applications.ico" />
+    <EmbeddedResource Include="HiloTareas\frmAddJob.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAddJob.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\User.png" />
   </ItemGroup>
 </Project>
