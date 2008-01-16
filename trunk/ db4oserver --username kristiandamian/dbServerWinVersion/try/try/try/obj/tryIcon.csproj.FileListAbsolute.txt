@@ -39,10 +39,8 @@ C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projec
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\try\try\try\bin\Debug\Db4objects.Db4o.xml
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\tryIcon.exe
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\tryIcon.pdb
-C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\Libreria.pdb
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\DB4OServer.pdb
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\Db4objects.Db4o.xml
-C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\EncriptacionAsimetrica.pdb
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\obj\Debug\tryIcon.Resources.User.png
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\obj\Debug\tryIcon.frmPrincipal.resources

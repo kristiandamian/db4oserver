@@ -35,19 +35,19 @@ namespace UTestServer
         {
             //Inicializo el cliente
             cliente = new Cliente();
-            cliente.File = "file.yap";
+            cliente.File = "\\172.16.1.10\\Auditoria\\file.yap";
             cliente.Port = "1234";
             cliente.User = "user1";
-            cliente.Server = "localhost";
-            cliente.Password = "password12";
+            cliente.Server = "172.16.1.10";
+            cliente.Password = "Password12";
 
             //Inicializo el cliente
             cliente2 = new Cliente();
-            cliente2.File = "file2.yap";
+            cliente2.File = "\\172.16.1.10\\Auditoria\\file2.yap";
             cliente2.Port = "1235";
             cliente2.User = "user1";
-            cliente2.Server = "localhost";
-            cliente2.Password = "password";
+            cliente2.Server = "172.16.1.10";
+            cliente2.Password = "Password12";
             /*
             //The server AUCH!!!
             servidor = new RunServer(cliente);
@@ -60,26 +60,30 @@ namespace UTestServer
             IObjectContainer dbcliente = Db4oFactory.OpenClient(cliente.Server, Convert.ToInt32(cliente.Port),
                                                               cliente.User, cliente.Password);
 
-            IObjectContainer dbcliente2 = Db4oFactory.OpenClient(cliente2.Server, Convert.ToInt32(cliente2.Port),
-                                                              cliente2.User, cliente2.Password);
             //añado una prueba a la bd
             dbcliente.Set(new Prueba(1, "ABC", true));
-            dbcliente2.Set(new Prueba(1, "ABC", true));
             dbcliente.Set(new Prueba(2, "DEF", false));
-            dbcliente2.Set(new Prueba(2, "DEF", false));
             dbcliente.Set(new Prueba(3, "GHI", true));
-            dbcliente2.Set(new Prueba(3, "GHI", true));
             dbcliente.Set(new Prueba(4, "JKM", false));
-            dbcliente2.Set(new Prueba(4, "JKM", false));
             dbcliente.Set(new Prueba(5, "NÑO", true));
-            dbcliente2.Set(new Prueba(5, "NÑO", true));
             dbcliente.Set(new Prueba(6, "PQR", false));
-            dbcliente2.Set(new Prueba(6, "PQR", false));
             dbcliente.Commit();
-            dbcliente2.Commit();
             dbcliente.Close();
-            dbcliente2.Close();
             dbcliente.Dispose();
+        }
+        public void AddDB2()
+        {
+            IObjectContainer dbcliente2 = Db4oFactory.OpenClient(cliente2.Server, Convert.ToInt32(cliente2.Port),
+                                                  cliente2.User, cliente2.Password);
+
+            dbcliente2.Set(new Prueba(1, "ABC", true));
+            dbcliente2.Set(new Prueba(2, "DEF", false));
+            dbcliente2.Set(new Prueba(3, "GHI", true));
+            dbcliente2.Set(new Prueba(4, "JKM", false));
+            dbcliente2.Set(new Prueba(5, "NÑO", true));
+            dbcliente2.Set(new Prueba(6, "PQR", false));
+            dbcliente2.Commit();
+            dbcliente2.Close();
             dbcliente2.Dispose();
         }
 
