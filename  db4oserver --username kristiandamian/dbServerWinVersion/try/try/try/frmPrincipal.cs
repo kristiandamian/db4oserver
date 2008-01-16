@@ -68,7 +68,7 @@ namespace tryIcon
                 if (ValidoDatosCliente(true))
                 {
                     if (!servidor.IsRunning())
-                    { 
+                    {
                         servidor.Client = cliente;//por si cambio en el camino despues                        
                         servidor.Run();           //de ser instanciado                                     
                         //Si, esta es una solución ñoña, pero tengo que esperar a que 
@@ -81,7 +81,8 @@ namespace tryIcon
                         else
                             Offline();
                     }
-                    //else
+                    else
+                        Online();
                     //    MessageBox.Show("La base de datos ya esta iniciada");
                 }
             }
@@ -489,6 +490,7 @@ namespace tryIcon
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                dbclienteEdit.Close();
             }
         }
         private void mnuDelete_Click(object sender, EventArgs e)

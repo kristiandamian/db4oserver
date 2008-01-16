@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\UTestServer\bin\Debug\UTestServer.dll" total="1" failures="1" not-run="0" date="2007-12-27" time="16:56:14">
-  <environment nunit-version="2.4.1.0" clr-version="2.0.50727.1433" os-version="Microsoft Windows NT 5.1.2600 Service Pack 2" platform="Win32NT" cwd="D:\Microsoft Visual Studio 8\Common7\IDE" machine-name="AUDIT_SYS" user="Administrador" user-domain="AUDIT_SYS" />
+<test-results name="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\UTestServer\bin\Debug\UTestServer.dll" total="1" failures="1" not-run="0" date="2008-01-15" time="16:56:34">
+  <environment nunit-version="2.4.1.0" clr-version="2.0.50727.1433" os-version="Microsoft Windows NT 5.1.2600 Service Pack 2" platform="Win32NT" cwd="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion" machine-name="AUDIT_SYS" user="Administrador" user-domain="AUDIT_SYS" />
   <culture-info current-culture="es-MX" current-uiculture="es-ES" />
-  <test-suite name="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\UTestServer\bin\Debug\UTestServer.dll" success="False" time="2.016" asserts="0">
+  <test-suite name="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\UTestServer\bin\Debug\UTestServer.dll" success="False" time="1.766" asserts="0">
     <results>
-      <test-suite name="UTestServer" success="False" time="2.016" asserts="0">
+      <test-suite name="UTestServer" success="False" time="1.766" asserts="0">
         <results>
-          <test-suite name="Class1" success="False" time="1.922" asserts="0">
+          <test-suite name="Class1" success="False" time="1.719" asserts="0">
             <results>
-              <test-case name="UTestServer.Class1.AddDB" executed="True" success="False" time="1.797" asserts="0">
+              <test-case name="UTestServer.Class1.AddDB" executed="True" success="False" time="1.469" asserts="0">
                 <failure>
-                  <message><![CDATA[System.Net.Sockets.SocketException : No se ha podido establecer conexión ya que el equipo de destino ha denegado activamente dicha conexión 127.0.0.1:1235]]></message>
+                  <message><![CDATA[System.Net.Sockets.SocketException : No se ha podido establecer conexión ya que el equipo de destino ha denegado activamente dicha conexión 172.16.1.10:1234]]></message>
                   <stack-trace><![CDATA[   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
    at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
    at Db4objects.Db4o.Config.PlainSocketFactory.CreateSocket(String hostName, Int32 port)
    at Db4objects.Db4o.Foundation.Network.NetworkSocket..ctor(INativeSocketFactory factory, String hostName, Int32 port)
    at Db4objects.Db4o.Db4oFactory.OpenClient(IConfiguration config, String hostName, Int32 port, String user, String password, INativeSocketFactory socketFactory)
    at Db4objects.Db4o.Db4oFactory.OpenClient(String hostName, Int32 port, String user, String password)
-   at UTestServer.Class1.AddDB() in C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\DB4OServer\UTestServer\Class1.cs:line 48
+   at UTestServer.Class1.AddDB() in C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\UTestServer\Class1.cs:line 60
 ]]></stack-trace>
                 </failure>
               </test-case>

@@ -67,8 +67,11 @@ namespace DB4OServer
         {
             if(this.SinAcceso!=null)
                 this.SinAcceso();
-            pub.Dispose();
-            pub.RaiseCustomEvent-= pub_RaiseCustomEvent;
+            if (pub != null)
+            {
+                pub.Dispose();
+                pub.RaiseCustomEvent -= pub_RaiseCustomEvent;
+            }
             pub = null;            
         }
 
@@ -104,7 +107,8 @@ namespace DB4OServer
                 {
                     server.Close();
                     stop = true;
-                    pub.SinAcceso();                    
+                    if(pub!=null)
+                        pub.SinAcceso();                    
                 }                
             }
         }
@@ -191,10 +195,14 @@ namespace DB4OServer
                 IObjectServer server = Db4oFactory.OpenServer(MiCliente.File, Convert.ToInt32(MiCliente.Port));
                 server.Close();
             }
-            catch (DatabaseFileLockedException )
+            catch (DatabaseFileLockedException)
             {
                 bRetorno = true;
-            }            
+            }
+            catch (Db4oIOException)
+            {
+                bRetorno = true;
+            }
             return bRetorno;
         }
         
