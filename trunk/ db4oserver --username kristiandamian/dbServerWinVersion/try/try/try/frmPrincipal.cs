@@ -16,6 +16,7 @@
 using System;
 using System.Threading;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -34,11 +35,6 @@ namespace tryIcon
             InitializeComponent();
 
             cliente = new Cliente();
-            cliente.File = "file.yap";
-            cliente.Port = "1234";
-            cliente.User = "user1";
-            cliente.Server = "localhost";
-            cliente.Password = "password12";
             
             if (servidor == null)
                 servidor = new RunServer(cliente);
@@ -46,20 +42,29 @@ namespace tryIcon
             servidor.SinAcceso += Excepcion;
         }
         
+
         #region "Mensajes del sistema"
         string sAccessMessage = "No tiene acceso a ese Servidor/Archivo";
         string sClientError = "Error con los datos de conexion";
+        string sStopError = "Error al tratar de detener el server";
         #endregion
         private static string _InstancesFile = Application.StartupPath + Path.DirectorySeparatorChar + "InstancesFile.yap";
         private string _UsersFile = Application.StartupPath + Path.DirectorySeparatorChar + "users.yap";
         private RunServer servidor;
         private Cliente cliente;
+        private List<Cliente> AllMyClient;//No boxing, no casting!! santos genericos batman!!
         private frmSettings config;        
         public Cliente MyClient
         {
             set { cliente = value; }
             get { return cliente; }
-        }        
+        }
+        public List<Cliente> AllTheInstances
+        {
+            set { AllMyClient = value; }
+            get { return AllMyClient; }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -74,7 +79,7 @@ namespace tryIcon
                         //Si, esta es una solución ñoña, pero tengo que esperar a que 
                         //termine el otro hilo y no vale la pena meter sincronizacion
                         //para que solo muestre un dibujito
-                        Thread.Sleep(3000);
+                        Thread.Sleep(1000);
                         ReviewState();
                         if (servidor.IsRunning())
                             Online();
@@ -94,6 +99,7 @@ namespace tryIcon
 
         private bool ValidoDatosCliente(bool ConMensaje)
         {
+
             bool bRetorno=false;
             if (cliente!=null &&
                cliente.File != null && cliente.File.Trim().Length > 0 &&
@@ -125,8 +131,10 @@ namespace tryIcon
         {
             try
             {
-                servidor.Stop();
-                Offline();
+                if (servidor.Stop())
+                    Offline();
+                else
+                    MessageBox.Show(sStopError);
             }
             /*catch (DatabaseClosedException ex)
             {
@@ -141,20 +149,58 @@ namespace tryIcon
         {
             Offline();
             GetAllInstances();
-            if (cliente.Server != null)
+            //pa manejar toooodas mis instancias
+            if (AllMyClient == null)
+                AllMyClient =new  List<Cliente>();
+
+            if (AllMyClient.Count == 0)
             {
-                cmbInstance.Items.Add(cliente.Server);
-                cmbInstance.SelectedIndex = 0;
+                cliente.File = "file.yap";
+                cliente.Port = "1234";
+                cliente.User = "user1";
+                cliente.Server = "localhost";
+                cliente.Password = "Password12";
+                cliente.FileUsers = _UsersFile;
+                AllMyClient.Add(cliente.Clone() as Cliente);
+                cliente.File = "file2.yap";
+                cliente.Port = "1235";
+                cliente.User = "user1";
+                cliente.Server = "localhost";
+                cliente.Password = "Password12";
+                cliente.FileUsers = _UsersFile;
+                AllMyClient.Add(cliente.Clone() as Cliente);
+            }
+
+            if (cliente!=null && cliente.Server != null)
+            {
+                servidor.Client = cliente;
+                Cliente oldClient = cliente;
+                foreach (Cliente clientecito in AllMyClient)
+                {
+                    cliente = clientecito;//añado de uno en uno las instancias que agregue MANUALMENTE                                 
+                    AñadoInstanciaAlCombo(false);//o con el boton View del menu contextual
+                }
+                cliente = oldClient;//me regreso al que tenia al principio
             }
             if (ValidoDatosCliente(false))
-            {
+            {              
+                    
                 if (servidor.IsRunning())
                 {
                     Online();
                 }
-            }
+            }          
         }
 
+        private void AñadoInstanciaAlCombo(bool bAñadir)
+        {
+            if (bAñadir)
+            {
+                AllMyClient.Add(cliente.Clone() as Cliente);//lo meto al final
+            }
+            cmbInstance.Items.Add(cliente.Server+"->"+cliente.File);
+            cmbInstance.SelectedIndex = cmbInstance.Items.Count - 1;            
+        }
         private void btnSettings_Click(object sender, EventArgs e)
         {
             if (config == null || config.IsDisposed)
@@ -164,26 +210,40 @@ namespace tryIcon
             }
             else
                 config.Activate();
-            config.MiCliente = cliente;            
+            config.MiCliente = cliente;
             config.ShowDialog();
         }
 
         //guardo los datos almacenados
         private void config_FormClosing(object sender, EventArgs e)
-        {
+        {            
             cliente = config.MiCliente;            
-            cmbInstance.Items.Clear();
+            //cmbInstance.Items.Clear();
             if (cliente.Server != null)
             {
-                cmbInstance.Items.Add(cliente.Server);
-                cmbInstance.SelectedIndex = 0;
+                if(ClienteNuevo(cliente))
+                    AñadoInstanciaAlCombo(true);
             }
             if (IsRunning())
                 Online();
             else
                 Offline();
         }
-
+        private bool ClienteNuevo(Cliente MyClient)
+        {
+            bool bRetorno = true;
+            foreach (Cliente clientecito in AllMyClient)
+            {
+                if (clientecito.Server == MyClient.Server &&
+                    clientecito.File == MyClient.File &&
+                    clientecito.Port == MyClient.Port)
+                {
+                    bRetorno = false;//no quiero añadirlo le movi algo
+                    break;
+                }
+            }
+            return bRetorno;
+        }
         private void Offline()
         {
             imgOffline.Visible = true;
@@ -203,7 +263,30 @@ namespace tryIcon
                 bRetorno=servidor.IsRunning();
             return bRetorno;
         }
-
+        private void cmbInstance_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (AllMyClient.Count > 0 )
+                {
+                    cliente = AllMyClient[cmbInstance.SelectedIndex].Clone() as Cliente;
+                    servidor.Client = cliente;
+                }
+                if (cliente.Server != null)
+                {
+                    if (IsRunning())
+                        Online();
+                    else
+                        Offline();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+       
+        #region "Registered items cejilla"
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ClearEdit();
@@ -220,9 +303,6 @@ namespace tryIcon
                     ((CheckBox)cn).Checked = false;
             }
         }
-
-        #region "Registered items cejilla"
-
         private void ReviewState()
         {
             try
@@ -263,7 +343,7 @@ namespace tryIcon
             try
             {
                 IObjectContainer dbcliente = Db4oFactory.OpenFile(_InstancesFile);
-                IObjectSet objetitos = dbcliente.Get(new Instancia());
+                IObjectSet objetitos = dbcliente.Get(new Instancia());//obtengo tooodos los objetos
 
                 while (objetitos.HasNext())
                 {
@@ -451,11 +531,13 @@ namespace tryIcon
                 {
                     //borro los hijitos de padre
                     treeFiles.Nodes[0].Nodes.Clear();
-                    if (cmbInstance.Items.Count > 0)
+                    /*if (cmbInstance.Items.Count > 0)
                         cmbInstance.Items.Clear();
-
+                    */
                     tabControl1.SelectedIndex = 0;//me pongo en el primer Tab
-                    this.Form1_Load(this, null);
+                    if (ClienteNuevo(cliente))
+                        AñadoInstanciaAlCombo(true);
+                    //this.Form1_Load(this, null);
                 }
                 
             }
@@ -554,8 +636,7 @@ namespace tryIcon
             }
             return bRetorno;
         }
-        #endregion
-
+        #endregion       
         
     }
 

@@ -26,6 +26,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.Collections.Generic;//pa manejar tooodas mis instancias
 using DB4OServer;
 
 namespace tryIcon
@@ -37,6 +38,7 @@ namespace tryIcon
 
         private frmPrincipal frmprincipal;
         private Cliente MyClient;
+        private List<Cliente> AllMyInstances;
 		
 		#region Initialize icon and menu
 		public NotificationIcon()
@@ -115,17 +117,18 @@ namespace tryIcon
 		}
 
         private void LlamoPantallaPrincipal()
-        {
-           
+        {           
             if (frmprincipal == null || frmprincipal.IsDisposed)
             {
                 frmprincipal = new frmPrincipal();
-                frmprincipal.FormClosing += new FormClosingEventHandler(frmprincipal_FormClosing);
+                frmprincipal.FormClosing += new FormClosingEventHandler(frmprincipal_FormClosing);                
             }
             else
                 frmprincipal.Activate();
             if (MyClient != null)
                 frmprincipal.MyClient = MyClient;
+            if(AllMyInstances!=null)
+                frmprincipal.AllTheInstances = AllMyInstances;//pa manejar tooodas mis instancias
             frmprincipal.Show();
         }
 
@@ -139,6 +142,7 @@ namespace tryIcon
                 if (!frmprincipal.IsDisposed)
                 {
                     MyClient = frmprincipal.MyClient;
+                    AllMyInstances = frmprincipal.AllTheInstances;//pa manejar tooodas mis instancias
                     if (frmprincipal.IsRunning())
                     {                        
                         notifyIcon.Icon = (Icon)resources.GetObject("connected");

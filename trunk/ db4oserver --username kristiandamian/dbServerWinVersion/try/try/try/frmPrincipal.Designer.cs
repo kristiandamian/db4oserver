@@ -155,6 +155,7 @@ namespace tryIcon
             this.cmbInstance.Name = "cmbInstance";
             this.cmbInstance.Size = new System.Drawing.Size(208, 21);
             this.cmbInstance.TabIndex = 3;
+            this.cmbInstance.SelectedIndexChanged += new System.EventHandler(this.cmbInstance_SelectedIndexChanged);
             // 
             // btnSettings
             // 
