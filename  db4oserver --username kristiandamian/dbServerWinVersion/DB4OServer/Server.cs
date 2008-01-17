@@ -77,39 +77,45 @@ namespace DB4OServer
 
         private void InitServer()
         {
-            lock (this)
-            {               
-                IObjectServer server = Db4oFactory.OpenServer(MiCliente.File, Convert.ToInt32(MiCliente.Port));
-            
-                if (ValidoUsuario())
-                {
-                    AgregoUsuarios(ref server);
-                    server.Ext().Configure().ClientServer().SetMessageRecipient(this);
-                    try
+            try
+            {
+                lock (this)
+                {                    
+                    IObjectServer server = Db4oFactory.OpenServer(MiCliente.File, Convert.ToInt32(MiCliente.Port));
+
+                    if (ValidoUsuario())
                     {
-                        while (!stop)
+                        AgregoUsuarios(ref server);
+                        server.Ext().Configure().ClientServer().SetMessageRecipient(this);
+                        try
                         {
-                            Monitor.Wait(this);/*wait 60000 ??*/
+                            while (!stop)
+                            {
+                                Monitor.Wait(this);/*wait 60000 ??*/
+                            }
+                        }
+                        catch (ThreadInterruptedException)
+                        {
+                            server.Close();
+                            stop = true;
+                        }
+                        finally
+                        {
+                            server.Close();
+                            stop = true;
                         }
                     }
-                    catch (ThreadInterruptedException )
+                    else
                     {
                         server.Close();
                         stop = true;
-                    }
-                    finally
-                    {
-                        server.Close();
-                        stop = true;
+                        if (pub != null)
+                            pub.SinAcceso();
                     }
                 }
-                else
-                {
-                    server.Close();
-                    stop = true;
-                    if(pub!=null)
-                        pub.SinAcceso();                    
-                }                
+            }
+            catch (DatabaseFileLockedException)
+            {//¿Que puedo hacer
             }
         }
 
@@ -161,8 +167,9 @@ namespace DB4OServer
             }
         }
 
-        public void Stop()
+        public bool Stop()
         {
+            bool bRetorno = true;
             IObjectContainer Contenedor = null;
             try
             {
@@ -173,16 +180,23 @@ namespace DB4OServer
                                                                    .GetMessageSender();
                     //envio el mensaje
                     messageSender.Send(new StopServer(""));
-                    //cierro el contenedor                
+                    Thread.Sleep(1000);//espero a que llegue el pinci mensaje
+                    //cierro el contenedor                     
                     if (Contenedor != null)
                         Contenedor.Close();
                     Contenedor.Dispose();
                 }
             }
-            catch (Exception )
+            catch (System.Net.Sockets.SocketException )
+            {//No se conecto, ta cerrado
+                bRetorno = true;//nomas por poner codigo
+            }
+            catch (Exception ex)
             {
+                bRetorno = false;//No se pudo detener
                 //Console.WriteLine(e.ToString());
             }
+            return bRetorno;
         }
 
         public bool IsRunning()

@@ -35,18 +35,18 @@ namespace UTestServer
         {
             //Inicializo el cliente
             cliente = new Cliente();
-            cliente.File = "\\172.16.1.10\\Auditoria\\file.yap";
+            cliente.File = "file.yap";
             cliente.Port = "1234";
             cliente.User = "user1";
-            cliente.Server = "172.16.1.10";
+            cliente.Server = "localhost";
             cliente.Password = "Password12";
 
             //Inicializo el cliente
             cliente2 = new Cliente();
-            cliente2.File = "\\172.16.1.10\\Auditoria\\file2.yap";
+            cliente2.File = "file2.yap";
             cliente2.Port = "1235";
             cliente2.User = "user1";
-            cliente2.Server = "172.16.1.10";
+            cliente2.Server = "localhost";
             cliente2.Password = "Password12";
             /*
             //The server AUCH!!!
@@ -71,6 +71,7 @@ namespace UTestServer
             dbcliente.Close();
             dbcliente.Dispose();
         }
+        [Test]
         public void AddDB2()
         {
             IObjectContainer dbcliente2 = Db4oFactory.OpenClient(cliente2.Server, Convert.ToInt32(cliente2.Port),

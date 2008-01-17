@@ -19,8 +19,8 @@ using System.Text;
 
 namespace DB4OServer
 {
-    [Serializable]
-    public class Cliente
+   // [Serializable]
+    public class Cliente:ICloneable
     {
         public string Server
         {
@@ -59,9 +59,21 @@ namespace DB4OServer
         private string sFile;
         private string sFileUsers;
 
-        private string EncriptoPassword(string valor)
+        private  string EncriptoPassword(string valor)
         {            
             return EncriptacionAsimetrica.EncriptacionHash.Encriptar(valor);
+        }
+
+        public Object Clone()
+        {
+            Cliente CloneClient=new Cliente();
+            CloneClient.File = this.File;
+            CloneClient.FileUsers = this.FileUsers;
+            CloneClient.sPassword = this.sPassword;//evito volver a encriptar
+            CloneClient.Port = this.Port;
+            CloneClient.Server = this.Server;
+            CloneClient.User = this.User;
+            return CloneClient;
         }
     }
 }
