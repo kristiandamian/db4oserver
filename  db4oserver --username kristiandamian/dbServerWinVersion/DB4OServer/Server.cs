@@ -191,7 +191,7 @@ namespace DB4OServer
             {//No se conecto, ta cerrado
                 bRetorno = true;//nomas por poner codigo
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 bRetorno = false;//No se pudo detener
                 //Console.WriteLine(e.ToString());

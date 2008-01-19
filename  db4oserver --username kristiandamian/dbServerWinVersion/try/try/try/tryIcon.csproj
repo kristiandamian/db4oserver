@@ -66,6 +66,7 @@
     <Compile Include="HiloTareas\frmAddJob.Designer.cs">
       <DependentUpon>frmAddJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="HiloTareas\Job.cs" />
     <Compile Include="HiloTareas\Schedule.cs" />
     <Compile Include="HiloTareas\Tarea.cs" />
     <Compile Include="NotificationIcon.cs" />
@@ -108,5 +109,8 @@
       <DependentUpon>frmAddJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>
