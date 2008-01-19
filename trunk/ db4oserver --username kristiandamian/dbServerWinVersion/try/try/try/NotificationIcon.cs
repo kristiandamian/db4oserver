@@ -59,6 +59,7 @@ namespace tryIcon
 		private MenuItem[] InitializeMenu()
 		{
 			MenuItem[] menu = new MenuItem[] {
+                new MenuItem("Show", menuShowClick),
 				new MenuItem("About", menuAboutClick),
 				new MenuItem("Exit", menuExitClick)
 			};
@@ -84,7 +85,7 @@ namespace tryIcon
 					NotificationIcon notificationIcon = new NotificationIcon();
 					notificationIcon.notifyIcon.Visible = true;
                     frmPrincipal.BeginAllInstances();
-					Application.Run();
+					Application.Run();                    
                     notificationIcon.notifyIcon.Dispose();
 				} else {
 					// The application is already running
@@ -97,10 +98,14 @@ namespace tryIcon
 		#endregion
 		
 		#region Event Handlers
-		private void menuAboutClick(object sender, EventArgs e)
+        private void menuShowClick(object sender, EventArgs e)
 		{
-			MessageBox.Show("KreationTech\n\rSome rights are wrong.\n\rReporting bugs to dcastrok@homex.com.mx");
+            LlamoPantallaPrincipal();
 		}
+        private void menuAboutClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("KreationTech\n\rSome rights are wrong.\n\rReporting bugs to dcastrok@homex.com.mx");
+        }
 		
 		private void menuExitClick(object sender, EventArgs e)
 		{//si se cierra la aplicacion se detiene el server
@@ -117,7 +122,10 @@ namespace tryIcon
 		}
 
         private void LlamoPantallaPrincipal()
-        {           
+        {
+            /*HiloTareas.frmAddJob p = new tryIcon.HiloTareas.frmAddJob();
+            p.ShowDialog();*/
+            
             if (frmprincipal == null || frmprincipal.IsDisposed)
             {
                 frmprincipal = new frmPrincipal();
