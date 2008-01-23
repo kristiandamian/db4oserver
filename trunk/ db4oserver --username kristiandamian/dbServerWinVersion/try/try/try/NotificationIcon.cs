@@ -60,7 +60,8 @@ namespace tryIcon
 		{
 			MenuItem[] menu = new MenuItem[] {
                 new MenuItem("Show", menuShowClick),
-				new MenuItem("About", menuAboutClick),
+                new MenuItem("-"),
+				new MenuItem("About", menuAboutClick),                
 				new MenuItem("Exit", menuExitClick)
 			};
 			return menu;
