@@ -64,8 +64,7 @@ namespace tryIcon
             set { AllMyClient = value; }
             get { return AllMyClient; }
         }
-
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -493,40 +492,59 @@ namespace tryIcon
         private string sOldFile;
         private IObjectContainer dbclienteEdit;
         private IList<Instancia> instanciasEdit;
+        private HiloTareas.frmAddJob frmNewJob;
+        private HiloTareas.frmJobsList frmJobslist;
         /// <summary>
         /// Genero el menu contextual para los elementos que se crean en el treeview
         /// </summary>
         /// <returns>El objeto ContextMenu con la informacion y los eventos correspondientes</returns>
         private ContextMenu MenuContextual()
-        {
+        {            
             ContextMenu menu = new ContextMenu();
             menu.MenuItems.Add("View this item");
             menu.MenuItems.Add("Edit this item");
             menu.MenuItems.Add("Delete this item");
+            menu.MenuItems.Add("-");//separator
+            menu.MenuItems.Add("Administrative Tasks");
+            //submenu
+            menu.MenuItems[4].MenuItems.Add("Add job");
+            menu.MenuItems[4].MenuItems.Add("View jobs");
+
             menu.MenuItems[0].Click += new EventHandler(mnuView_Click);
             menu.MenuItems[1].Click += new EventHandler(mnuEdit_Click);
             menu.MenuItems[2].Click += new EventHandler(mnuDelete_Click);
-
+            //submenu
+            menu.MenuItems[4].MenuItems[0].Click+=new EventHandler(mnuAddJob_Click);
+            menu.MenuItems[4].MenuItems[1].Click += new EventHandler(mnuViewJob_Click);
+            
             return menu;
+        }
+        private void mnuViewJob_Click(object sender, EventArgs e)
+        {
+            Cliente _tempClient = SearchClient();
+            if (frmJobslist == null || frmJobslist.IsDisposed)
+            {
+                frmJobslist = new tryIcon.HiloTareas.frmJobsList();
+            }
+            frmJobslist.MyClient = _tempClient;
+            frmJobslist.ShowDialog();
+        }
+        private void mnuAddJob_Click(object sender, EventArgs e)
+        {
+            Cliente _tempClient = SearchClient();
+            if (frmNewJob == null || frmNewJob.IsDisposed)
+            {
+                frmNewJob = new tryIcon.HiloTareas.frmAddJob();
+            }
+            frmNewJob.MyClient = _tempClient;
+            frmNewJob.ShowDialog();
         }
         private void mnuView_Click(object sender, EventArgs e)
         {            
             try
             {
-                IObjectContainer dbcliente = Db4oFactory.OpenFile(_InstancesFile);                
-                IList<Instancia> instancias = dbcliente.Query<Instancia>(delegate(Instancia instancia)
-                 {
-                     return NombreArchivo(instancia.File) == treeFiles.SelectedNode.Text;
-                 });
-                int Total=instancias.Count;
-                if ( Total> 0)
-                {
-                    foreach (Instancia Ins in instancias)
-                    {
-                        cliente = Ins;
-                    }
-                }
-                dbcliente.Close();                
+                int Total = 0;
+                cliente = SearchClient(ref Total);
                 if(Total>0)
                 {
                     //borro los hijitos de padre
@@ -545,6 +563,48 @@ namespace tryIcon
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        /// <summary>
+        /// Busco en la bd el objeto CLIENTE del seleccionado en el treeview
+        /// </summary>
+        /// <returns>El objeto cliente instanciado</returns>
+        private Cliente SearchClient()
+        {
+            Cliente _TempClient = null;
+            IObjectContainer dbcliente = Db4oFactory.OpenFile(_InstancesFile);
+            IList<Instancia> instancias = dbcliente.Query<Instancia>(delegate(Instancia instancia)
+             {
+                 return NombreArchivo(instancia.File) == treeFiles.SelectedNode.Text;
+             });
+            int Total = instancias.Count;
+            if (Total > 0)
+            {
+                foreach (Instancia Ins in instancias)
+                {
+                    _TempClient = Ins;
+                }
+            }
+            dbcliente.Close();
+            return _TempClient;
+        }
+        private Cliente SearchClient(ref int Total)
+        {
+            Cliente _TempClient = null;
+            IObjectContainer dbcliente = Db4oFactory.OpenFile(_InstancesFile);
+            IList<Instancia> instancias = dbcliente.Query<Instancia>(delegate(Instancia instancia)
+             {
+                 return NombreArchivo(instancia.File) == treeFiles.SelectedNode.Text;
+             });
+            Total = instancias.Count;
+            if (Total > 0)
+            {
+                foreach (Instancia Ins in instancias)
+                {
+                    _TempClient = Ins;
+                }
+            }
+            dbcliente.Close();
+            return _TempClient;
         }
         private void mnuEdit_Click(object sender, EventArgs e)
         {

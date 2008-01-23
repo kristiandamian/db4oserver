@@ -58,3 +58,5 @@ C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projec
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\Libreria.pdb
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\EncriptacionAsimetrica.dll
 C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\bin\Debug\EncriptacionAsimetrica.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\obj\Debug\tryIcon.HiloTareas.frmJobsList.resources
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\try\try\try\obj\Debug\tryIcon.HiloTareas.frmLogList.resources

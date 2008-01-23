@@ -66,7 +66,20 @@
     <Compile Include="HiloTareas\frmAddJob.Designer.cs">
       <DependentUpon>frmAddJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="HiloTareas\frmJobsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HiloTareas\frmJobsList.Designer.cs">
+      <DependentUpon>frmJobsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HiloTareas\frmLogList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HiloTareas\frmLogList.Designer.cs">
+      <DependentUpon>frmLogList.cs</DependentUpon>
+    </Compile>
     <Compile Include="HiloTareas\Job.cs" />
+    <Compile Include="HiloTareas\Log.cs" />
     <Compile Include="HiloTareas\Schedule.cs" />
     <Compile Include="HiloTareas\Tarea.cs" />
     <Compile Include="NotificationIcon.cs" />
@@ -108,9 +121,14 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmAddJob.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HiloTareas\frmJobsList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmJobsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HiloTareas\frmLogList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmLogList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\User.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>
