@@ -27,8 +27,8 @@ namespace tryIcon
 {
     public partial class frmUsers : Form
     {
-        private string sMessageError = "Error al crear usuario";
-        private string sMessageData = "Error con los datos capturados, por favor verifique";
+        private string sMessageError = "There was a error while trying to create the user";//"Error al crear usuario";
+        private string sMessageData = "Invalid Data";//"Error con los datos capturados, por favor verifique";
         private Cliente _MiCliente;
         public Cliente MiCliente
         {

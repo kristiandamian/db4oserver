@@ -50,6 +50,7 @@ namespace tryIcon.HiloTareas
             this.btnDetails.TabIndex = 1;
             this.btnDetails.Text = "View &Details";
             this.btnDetails.UseVisualStyleBackColor = true;
+            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // btnClose
             // 

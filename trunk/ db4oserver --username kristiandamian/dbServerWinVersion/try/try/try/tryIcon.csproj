@@ -81,6 +81,7 @@
     <Compile Include="HiloTareas\Job.cs" />
     <Compile Include="HiloTareas\Log.cs" />
     <Compile Include="HiloTareas\Schedule.cs" />
+    <Compile Include="HiloTareas\SearchJobs.cs" />
     <Compile Include="HiloTareas\Tarea.cs" />
     <Compile Include="NotificationIcon.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

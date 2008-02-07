@@ -44,9 +44,9 @@ namespace tryIcon
         
 
         #region "Mensajes del sistema"
-        string sAccessMessage = "No tiene acceso a ese Servidor/Archivo";
-        string sClientError = "Error con los datos de conexion";
-        string sStopError = "Error al tratar de detener el server";
+        string sAccessMessage = "Do not have access to this server/file";//"No tiene acceso a ese Servidor/Archivo";
+        string sClientError = "There was a error with the connection data";//"Error con los datos de conexion";
+        string sStopError = "There was an error while trying to stop the server";//"Error al tratar de detener el server";
         #endregion
         private static string _InstancesFile = Application.StartupPath + Path.DirectorySeparatorChar + "InstancesFile.yap";
         private string _UsersFile = Application.StartupPath + Path.DirectorySeparatorChar + "users.yap";

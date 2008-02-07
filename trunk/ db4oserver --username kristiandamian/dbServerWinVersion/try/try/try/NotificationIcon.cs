@@ -26,6 +26,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.Timers;
 using System.Collections.Generic;//pa manejar tooodas mis instancias
 using DB4OServer;
 
@@ -39,7 +40,9 @@ namespace tryIcon
         private frmPrincipal frmprincipal;
         private Cliente MyClient;
         private List<Cliente> AllMyInstances;
-		
+
+        //private System.Windows.Forms.Timer _cron;
+
 		#region Initialize icon and menu
 		public NotificationIcon()
 		{
@@ -86,6 +89,19 @@ namespace tryIcon
 					NotificationIcon notificationIcon = new NotificationIcon();
 					notificationIcon.notifyIcon.Visible = true;
                     frmPrincipal.BeginAllInstances();
+                    //Cronometro pa las tareas
+                    System.Timers.Timer _cron=null;
+                    if (_cron == null)
+                    {
+                        
+                        //Un segundo*Los segundos de un minuto*
+                        //Los minutos de una hora*cada 1 hora
+                        Double _intervalo = 1000 * 60 * 60 * 1;//deje el uno pa cambiar mas rapido en caso de hacerlo mas a lo largooooo
+                        _cron = new System.Timers.Timer(_intervalo);
+                        _cron.Elapsed += new ElapsedEventHandler(_cron_Tick);
+                        _cron.AutoReset = true;
+                        _cron.Start();
+                    }
 					Application.Run();                    
                     notificationIcon.notifyIcon.Dispose();
 				} else {
@@ -96,6 +112,24 @@ namespace tryIcon
 				}
 			} // releases the Mutex
 		}
+
+        static void _cron_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                IList<tryIcon.HiloTareas.Tarea> _tareas = SearchJobs.Search(DateTime.Now);
+                if (_tareas != null)//Hubo algo?
+                {
+                    foreach (tryIcon.HiloTareas.Tarea _tarea in _tareas)
+                    {
+                        _tarea.Run();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
 		#endregion
 		
 		#region Event Handlers
@@ -105,7 +139,7 @@ namespace tryIcon
 		}
         private void menuAboutClick(object sender, EventArgs e)
         {
-            MessageBox.Show("KreationTech\n\rSome rights are wrong.\n\rReporting bugs to dcastrok@homex.com.mx");
+            MessageBox.Show("KreationTech\n\rSome rights are wrong.\n\rReport bugs to dcastrok@homex.com.mx");
         }
 		
 		private void menuExitClick(object sender, EventArgs e)

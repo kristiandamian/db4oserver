@@ -229,6 +229,7 @@ namespace tryIcon.HiloTareas
         {
             dtNextExecutionTime = ExeTime;
         }
+ 
     }
     public class SomeDays : Schedule
     {
@@ -254,5 +255,6 @@ namespace tryIcon.HiloTareas
         {
             dtNextExecutionTime = ExeTime;
         }
-    }
+}
+    
 }
