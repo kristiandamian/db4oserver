@@ -31,6 +31,7 @@ namespace tryIcon.HiloTareas
         private string sFileWindowName = "Backup File";
         private string sMessageTextBox = "Plase input the job name";
         private string sMessageFileName = "Please select the backup file";
+        private string sMessageErrorClient="There was an error with the client data";
 
 
         private static string _JobsFile = Application.StartupPath + Path.DirectorySeparatorChar + "JobsFile.yap";
@@ -54,11 +55,19 @@ namespace tryIcon.HiloTareas
 
         private void frmAddJob_Load(object sender, EventArgs e)
         {
-            lblFileClient.Text = _MyClient.File;
-            lblServerClient.Text = _MyClient.Server;
-            LlenoCombo();
-            rdOnlyOnce.Checked = true;//deshabilito los demas groupBox
-            rdDefrag.Checked = true;
+            if (_MyClient != null)
+            {
+                lblFileClient.Text = _MyClient.File;
+                lblServerClient.Text = _MyClient.Server;
+                LlenoCombo();
+                rdOnlyOnce.Checked = true;//deshabilito los demas groupBox
+                rdDefrag.Checked = true;
+            }
+            else
+            {
+                MessageBox.Show(sMessageErrorClient);
+                this.Close();
+            }
         }
 
         private void LlenoCombo()

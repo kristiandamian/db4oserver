@@ -171,7 +171,7 @@ namespace tryIcon.HiloTareas
                     CuandoCalendarizo = new ConcreteFactoryDayOfWeek();
                 if(bSomeDays)
                     CuandoCalendarizo = new ConcreteFactorySomeDays(); ;
-                Calendarizacion = CuandoCalendarizo.CrearSchedule();
+                Calendarizacion = CuandoCalendarizo.CrearSchedule();                
             }
             AbstractFactoryJob JobFactory=null;
             if(_job==null)
@@ -254,7 +254,7 @@ namespace tryIcon.HiloTareas
         private bool InitDateOnlyOnce(DateTime ExecTime)
         {          
             bool bRetorno=false;
-            if (Calendarizacion.GetType() == typeof(OnlyOnce).GetType())
+            if (Calendarizacion.GetType() == typeof(OnlyOnce))
             {
                 Calendarizacion.DefineTime(ExecTime);
                 bRetorno = true;
@@ -269,7 +269,7 @@ namespace tryIcon.HiloTareas
         private bool InitDateSomeDays(DateTime ExecTime, int iDays)
         {
             bool bRetorno=false;
-            if (Calendarizacion.GetType() == typeof(SomeDays).GetType())
+            if (Calendarizacion.GetType() == typeof(SomeDays))
             {
                 Calendarizacion.DefineTime(ExecTime);
                 ((SomeDays)Calendarizacion).Days = iDays;
@@ -287,7 +287,7 @@ namespace tryIcon.HiloTareas
         private bool InitDateDaysOfWeek(DateTime ExecTime, bool[] Week)
         {
             bool bRetorno = false;
-            if (Calendarizacion.GetType() == typeof(SomeDaysOfWeeks).GetType())
+            if (Calendarizacion.GetType() == typeof(SomeDaysOfWeeks))
             {
                 Calendarizacion.DefineTime(ExecTime);
                 ((SomeDaysOfWeeks)Calendarizacion).Week = Week;
