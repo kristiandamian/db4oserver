@@ -63,6 +63,8 @@ namespace tryIcon
             this.txtFileUsers = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtAlias = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +81,7 @@ namespace tryIcon
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 100);
+            this.label3.Location = new System.Drawing.Point(64, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 13);
             this.label3.TabIndex = 5;
@@ -87,14 +89,14 @@ namespace tryIcon
             // 
             // txtFile
             // 
-            this.txtFile.Location = new System.Drawing.Point(127, 97);
+            this.txtFile.Location = new System.Drawing.Point(127, 91);
             this.txtFile.Name = "txtFile";
             this.txtFile.Size = new System.Drawing.Size(100, 20);
             this.txtFile.TabIndex = 6;
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(12, 123);
+            this.groupBox1.Location = new System.Drawing.Point(12, 149);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(238, 10);
             this.groupBox1.TabIndex = 7;
@@ -103,7 +105,7 @@ namespace tryIcon
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 154);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 168);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(53, 51);
             this.pictureBox2.TabIndex = 8;
@@ -112,7 +114,7 @@ namespace tryIcon
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 32);
+            this.label1.Location = new System.Drawing.Point(64, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
@@ -128,7 +130,7 @@ namespace tryIcon
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 66);
+            this.label2.Location = new System.Drawing.Point(64, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 3;
@@ -136,14 +138,14 @@ namespace tryIcon
             // 
             // txtPort
             // 
-            this.txtPort.Location = new System.Drawing.Point(127, 63);
+            this.txtPort.Location = new System.Drawing.Point(127, 60);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(100, 20);
             this.txtPort.TabIndex = 4;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(127, 185);
+            this.txtPassword.Location = new System.Drawing.Point(127, 199);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
@@ -152,7 +154,7 @@ namespace tryIcon
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(71, 188);
+            this.label4.Location = new System.Drawing.Point(71, 202);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 11;
@@ -160,7 +162,7 @@ namespace tryIcon
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(127, 151);
+            this.txtUser.Location = new System.Drawing.Point(127, 165);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(100, 20);
             this.txtUser.TabIndex = 10;
@@ -168,7 +170,7 @@ namespace tryIcon
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(74, 154);
+            this.label5.Location = new System.Drawing.Point(74, 168);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 9;
@@ -229,11 +231,31 @@ namespace tryIcon
             this.label7.TabIndex = 18;
             this.label7.Text = "Add users";
             // 
+            // txtAlias
+            // 
+            this.txtAlias.Location = new System.Drawing.Point(127, 122);
+            this.txtAlias.Name = "txtAlias";
+            this.txtAlias.Size = new System.Drawing.Size(100, 20);
+            this.txtAlias.TabIndex = 20;
+            this.txtAlias.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(63, 125);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Namespace";
+            this.label8.Visible = false;
+            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(254, 355);
+            this.Controls.Add(this.txtAlias);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtFileUsers);
             this.Controls.Add(this.label6);
@@ -289,5 +311,7 @@ namespace tryIcon
         private System.Windows.Forms.TextBox txtFileUsers;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtAlias;
+        private System.Windows.Forms.Label label8;
     }
 }

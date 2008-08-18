@@ -20,6 +20,7 @@ using System.Threading;
 using System.ComponentModel;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Messaging;
+using Db4objects.Db4o.Config;
 
 namespace DB4OServer
 {
@@ -53,7 +54,7 @@ namespace DB4OServer
                 if(pub==null)
                     pub = new Publisher();                
                 pub.RaiseCustomEvent+=pub_RaiseCustomEvent;
-                 
+                
                 stop = false;
                 Thread hilo = new Thread(new ThreadStart(InitServer));
                 hilo.Start();
@@ -86,6 +87,7 @@ namespace DB4OServer
                     if (ValidoUsuario())
                     {
                         AgregoUsuarios(ref server);
+                        server.Ext().Configure().AddAlias(new WildcardAlias("JerarquiaCheckList.*", "JerarquiaCheckList.*,JerarquiaCheckList"));
                         server.Ext().Configure().ClientServer().SetMessageRecipient(this);
                         try
                         {

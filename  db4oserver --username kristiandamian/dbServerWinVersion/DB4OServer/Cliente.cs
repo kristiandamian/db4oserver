@@ -59,6 +59,16 @@ namespace DB4OServer
         private string sFile;
         private string sFileUsers;
 
+        private string sAliasNamespace;
+        /// <summary>
+        /// This is necessary to access the Objects in your namespace
+        /// </summary>
+        public string AliasNamespace
+        {
+            set { sAliasNamespace = value; }
+            get { return sAliasNamespace; }
+        }
+
         private  string EncriptoPassword(string valor)
         {            
             return EncriptacionAsimetrica.EncriptacionHash.Encriptar(valor);

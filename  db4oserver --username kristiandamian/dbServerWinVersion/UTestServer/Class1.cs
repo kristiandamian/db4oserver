@@ -25,7 +25,7 @@ namespace UTestServer
     [TestFixture]
     public class Class1
     {
-        private RunServer servidor;
+        //private RunServer servidor;
         private Cliente cliente;
 
         private Cliente cliente2;
