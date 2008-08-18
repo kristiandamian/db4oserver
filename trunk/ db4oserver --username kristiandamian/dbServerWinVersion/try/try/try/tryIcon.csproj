@@ -21,16 +21,13 @@
     <DebugType>None</DebugType>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
     <Reference Include="Db4objects.Db4o, Version=6.4.0.8131, Culture=neutral, PublicKeyToken=6199cd4f203aa8eb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\DB4OServer\bin\Debug\Db4objects.Db4o.dll</HintPath>
-    </Reference>
-    <Reference Include="DB4OServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\DB4OServer\bin\Debug\DB4OServer.dll</HintPath>
     </Reference>
     <Reference Include="EncriptacionAsimetrica, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -131,5 +128,11 @@
       <DependentUpon>frmLogList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DB4OServer\DB4OServer.csproj">
+      <Project>{E8AED8E0-A353-44E9-8DFC-E37E1143C0F1}</Project>
+      <Name>DB4OServer</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

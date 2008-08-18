@@ -23,6 +23,44 @@ using tryIcon.HiloTareas;
 
 namespace tryIcon
 {
+    public class Prueba
+    {
+        public void BusquedaSODA()
+        {
+            IObjectContainer dbcliente = Db4oFactory.OpenFile("File.yap");
+
+            Db4objects.Db4o.Query.IQuery _Consulta = dbcliente.Query();
+            _Consulta.Constrain(typeof(Foo));
+            _Consulta.Descend("Numero").Constrain(21).Greater(); //Devuelve todos los objetos
+                                                                //que son mayores a 21 en 'Numero'
+            IObjectSet ConjuntoFoos = _Consulta.Execute();
+            foreach (Foo _fooRes in ConjuntoFoos)        
+            {
+                _fooRes.Entero = 0;
+                dbcliente.Set(_fooRes);//Actualizo el objeto
+            }
+            dbcliente.Close();
+        }
+    }
+
+
+    public class Foo
+    {
+        private int val1;
+        private string val2;
+
+        public int Entero
+        {
+            set { val1 = value; }
+            get { return val1; }
+        }
+        public string Cadena
+        {
+            set { val2 = value; }
+            get { return val2; }
+        }
+    }
+
     public static class SearchJobs
     {
         private static string _JobsFile = Application.StartupPath + Path.DirectorySeparatorChar + "JobsFile.yap";

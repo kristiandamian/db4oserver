@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\UTestServer\bin\Debug\UTestServer.dll" total="2" failures="1" not-run="0" date="2008-01-16" time="17:59:08">
+<test-results name="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\UTestServer\bin\Debug\UTestServer.dll" total="2" failures="1" not-run="0" date="2008-02-15" time="18:15:04">
   <environment nunit-version="2.4.1.0" clr-version="2.0.50727.1433" os-version="Microsoft Windows NT 5.1.2600 Service Pack 2" platform="Win32NT" cwd="D:\Microsoft Visual Studio 8\Common7\IDE" machine-name="AUDIT_SYS" user="Administrador" user-domain="AUDIT_SYS" />
   <culture-info current-culture="es-MX" current-uiculture="es-ES" />
-  <test-suite name="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\UTestServer\bin\Debug\UTestServer.dll" success="False" time="2.078" asserts="0">
+  <test-suite name="C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\dbServerRepo\dbServerWinVersion\UTestServer\bin\Debug\UTestServer.dll" success="False" time="2.016" asserts="0">
     <results>
-      <test-suite name="UTestServer" success="False" time="2.063" asserts="0">
+      <test-suite name="UTestServer" success="False" time="1.969" asserts="0">
         <results>
-          <test-suite name="Class1" success="False" time="2.031" asserts="0">
+          <test-suite name="Class1" success="False" time="1.938" asserts="0">
             <results>
-              <test-case name="UTestServer.Class1.AddDB" executed="True" success="True" time="0.719" asserts="0" />
-              <test-case name="UTestServer.Class1.AddDB2" executed="True" success="False" time="1.094" asserts="0">
+              <test-case name="UTestServer.Class1.AddDB" executed="True" success="True" time="0.688" asserts="0" />
+              <test-case name="UTestServer.Class1.AddDB2" executed="True" success="False" time="1.125" asserts="0">
                 <failure>
                   <message><![CDATA[System.Net.Sockets.SocketException : No se ha podido establecer conexión ya que el equipo de destino ha denegado activamente dicha conexión 127.0.0.1:1235]]></message>
                   <stack-trace><![CDATA[   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)

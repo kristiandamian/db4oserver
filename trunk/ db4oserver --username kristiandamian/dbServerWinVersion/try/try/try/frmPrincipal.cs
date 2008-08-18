@@ -154,16 +154,16 @@ namespace tryIcon
 
             if (AllMyClient.Count == 0)
             {
-                cliente.File = "file.yap";
-                cliente.Port = "1234";
+                cliente.File = "file2.yap";
+                cliente.Port = "1235";
                 cliente.User = "user1";
                 cliente.Server = "localhost";
                 cliente.Password = "Password12";
                 cliente.FileUsers = _UsersFile;
                 AllMyClient.Add(cliente.Clone() as Cliente);
-                cliente.File = "file2.yap";
-                cliente.Port = "1235";
-                cliente.User = "user1";
+                cliente.File = "C:\\Datos_Check\\Data.yap";
+                cliente.Port = "8888";
+                cliente.User = "User";
                 cliente.Server = "localhost";
                 cliente.Password = "Password12";
                 cliente.FileUsers = _UsersFile;

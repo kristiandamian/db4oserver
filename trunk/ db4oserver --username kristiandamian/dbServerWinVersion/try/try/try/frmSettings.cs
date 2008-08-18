@@ -63,6 +63,7 @@ namespace tryIcon
             MiCliente.Port = txtPort.Text;
             MiCliente.File = txtFile.Text;
             MiCliente.User = txtUser.Text;
+            MiCliente.AliasNamespace = txtAlias.Text;
             MiCliente.Password = txtPassword.Text;
             MiCliente.FileUsers = txtFileUsers.Text;
             this.Close();
